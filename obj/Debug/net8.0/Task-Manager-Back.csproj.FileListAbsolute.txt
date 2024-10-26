@@ -235,3 +235,4 @@ C:\Users\ASUS\source\repos\Task-Manager-Back\Task-Manager-Back\obj\Debug\net8.0\
 C:\Users\ASUS\source\repos\Task-Manager-Back\Task-Manager-Back\obj\Debug\net8.0\Task-Manager-Back.pdb
 C:\Users\ASUS\source\repos\Task-Manager-Back\Task-Manager-Back\obj\Debug\net8.0\Task-Manager-Back.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\Task-Manager-Back\Task-Manager-Back\obj\Debug\net8.0\ref\Task-Manager-Back.dll
+C:\Users\ASUS\source\repos\Task-Manager-Back\Task-Manager-Back\obj\Debug\net8.0\Task-Manager-Back.sourcelink.json
