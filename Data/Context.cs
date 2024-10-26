@@ -10,6 +10,6 @@ namespace Task_Manager_Back.Data
             
         }
 
-        public DbSet<TaskItem> TaskItem { get; set; }
+        public DbSet<TaskItem> TaskItems { get; set; }
     }
 }
