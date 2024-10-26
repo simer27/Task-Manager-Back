@@ -21,5 +21,17 @@ namespace Task_Manager_Back.Controllers
         public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItems() {
             return await _context.TaskItems.ToListAsync();
         }
+
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<TaskItem>> GetTaskItem(Guid id)
+        {
+            var taskItem = await _context.TaskItems.FindAsync(id);
+
+            if (taskItem == null) { 
+                return NotFound();
+            }
+            
+            return taskItem;
+        }
     }
 }
