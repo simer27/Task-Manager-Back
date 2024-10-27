@@ -55,6 +55,55 @@ namespace Task_Manager_Back.Controllers
             return CreatedAtAction(nameof(GetTaskItem), new { id = taskItem.Id }, taskItem);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTaskItem(Guid id, TaskItemDto updateDto)
+        {
+            var taskItem = await _context.TaskItems.FindAsync(id);
+
+            if (taskItem == null)
+            {
+                return NotFound();
+            }
+
+            taskItem.Title = updateDto.Title;
+            taskItem.Description = updateDto.Description;
+            taskItem.Status = updateDto.Status;
+            taskItem.UpdatedAt = DateTime.UtcNow;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TaskItemExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTaskItem(Guid id)
+        {
+            var taskItem = await _context.TaskItems.FindAsync(id);
+            if (taskItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.TaskItems.Remove(taskItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
         private bool TaskItemExists(Guid id)
         {
             return _context.TaskItems.Any(e => e.Id == id);
