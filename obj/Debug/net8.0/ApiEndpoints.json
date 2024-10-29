@@ -86,7 +86,7 @@
       },
       {
         "Name": "updateDto",
-        "Type": "Task_Manager_Back.Dtos.TaskItemDto",
+        "Type": "Task_Manager_Back.Dtos.UpdateTaskDto",
         "IsRequired": true
       }
     ],

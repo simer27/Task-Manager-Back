@@ -56,7 +56,7 @@ namespace Task_Manager_Back.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTaskItem(Guid id, TaskItemDto updateDto)
+        public async Task<IActionResult> PutTaskItem(Guid id, UpdateTaskDto updateDto)
         {
             var taskItem = await _context.TaskItems.FindAsync(id);
 
@@ -65,8 +65,6 @@ namespace Task_Manager_Back.Controllers
                 return NotFound();
             }
 
-            taskItem.Title = updateDto.Title;
-            taskItem.Description = updateDto.Description;
             taskItem.Status = updateDto.Status;
             taskItem.UpdatedAt = DateTime.UtcNow;
 
